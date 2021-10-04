@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'GoSchool UI',
+      title: 'Go School',
       theme: ThemeData(
         primaryColor: Color(0xFF202328),
         accentColor: Color(0xFF63CF93),

@@ -21,7 +21,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
     super.initState();
     _homeScreen = HomeScreen();
     _classesScreen = ClassesScreen();
-    _pages = [_homeScreen, _classesScreen];
+    _pages = [_homeScreen, _classesScreen, _homeScreen];
     _currentPage = _homeScreen;
   }
 
@@ -55,7 +55,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
           onTap: (int index) {
             setState(() {
               _selectedTab = index;
-              if (index == 0 || index == 1) 
+              if (index == 0 || index == 1 || index == 2)
                 _currentPage = _pages[index];
             });
           },

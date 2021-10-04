@@ -14,6 +14,7 @@ class RecentsAlerts extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
       shrinkWrap: true,
+      physics: NeverScrollableScrollPhysics(),
       itemCount: recentAlerts.length,
       itemBuilder: (BuildContext context, int index) {
         Alert alert = recentAlerts[index];
@@ -37,9 +38,9 @@ class RecentsAlerts extends StatelessWidget {
             ),
             Container(
               margin: EdgeInsets.only(bottom: 30.0),
-              padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 10.0),
+              padding: EdgeInsets.fromLTRB(10.0, 20.0, 20.0, 10.0),
               height: 130.0,
-              width: 326.0,
+              width: MediaQuery.of(context).size.width * 0.85,
               decoration: BoxDecoration(
                 color: kCardColor,
                 borderRadius: BorderRadius.only(
