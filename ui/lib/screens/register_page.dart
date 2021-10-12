@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:ui/config/themes.dart';
+import 'package:ui/generated/l10n.dart';
 import 'package:ui/widgets/app_outlinebutton.dart';
 import 'package:ui/widgets/app_textfield.dart';
 import 'package:ui/widgets/fluttericon.dart';
-
 class RegisterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class RegisterPage extends StatelessWidget {
                 ],
               ),
               Text(
-                "Sign Up",
+                S.of(context).signUp,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   color: Themes.colorHeader,
@@ -66,28 +66,28 @@ class RegisterPage extends StatelessWidget {
               ),
               SizedBox(height: 24),
               Text(
-                "Or, register with email...",
+                S.of(context).orRegisterWithEmail,
                 style: TextStyle(color: Colors.black38),
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: 24),
               AppTextField(
-                hint: "Email ID",
+                hint: S.of(context).emailId,
                 icon: FlutterIcons.email,
               ),
               SizedBox(height: 12),
               AppTextField(
-                hint: "Password",
+                hint: S.of(context).password,
                 icon: FlutterIcons.lock,
               ),
               SizedBox(height: 12),
               AppTextField(
-                hint: "Full Name",
+                hint: S.of(context).fullName,
                 icon: FlutterIcons.user,
               ),
               SizedBox(height: 12),
               AppTextField(
-                hint: "Company Name",
+                hint: S.of(context).companyName,
                 icon: FlutterIcons.shop,
               ),
               SizedBox(height: 12),

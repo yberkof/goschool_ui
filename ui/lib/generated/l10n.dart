@@ -46,6 +46,156 @@ class S {
       args: [],
     );
   }
+
+  /// `Search`
+  String get search {
+    return Intl.message(
+      'Search',
+      name: 'search',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Recent Alerts`
+  String get recentAlerts {
+    return Intl.message(
+      'Recent Alerts',
+      name: 'recentAlerts',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `View all`
+  String get viewAll {
+    return Intl.message(
+      'View all',
+      name: 'viewAll',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Recent Homework`
+  String get recentHomework {
+    return Intl.message(
+      'Recent Homework',
+      name: 'recentHomework',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Login`
+  String get login {
+    return Intl.message(
+      'Login',
+      name: 'login',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email ID`
+  String get emailId {
+    return Intl.message(
+      'Email ID',
+      name: 'emailId',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password`
+  String get password {
+    return Intl.message(
+      'Password',
+      name: 'password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Forgot?`
+  String get forgot {
+    return Intl.message(
+      'Forgot?',
+      name: 'forgot',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Or, login with...`
+  String get orLoginWith {
+    return Intl.message(
+      'Or, login with...',
+      name: 'orLoginWith',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New to iThickLogistics?`
+  String get newToIthicklogistics {
+    return Intl.message(
+      'New to iThickLogistics?',
+      name: 'newToIthicklogistics',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Register`
+  String get register {
+    return Intl.message(
+      'Register',
+      name: 'register',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign Up`
+  String get signUp {
+    return Intl.message(
+      'Sign Up',
+      name: 'signUp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Or, register with email...`
+  String get orRegisterWithEmail {
+    return Intl.message(
+      'Or, register with email...',
+      name: 'orRegisterWithEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Full Name`
+  String get fullName {
+    return Intl.message(
+      'Full Name',
+      name: 'fullName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Company Name`
+  String get companyName {
+    return Intl.message(
+      'Company Name',
+      name: 'companyName',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

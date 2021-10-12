@@ -22,6 +22,25 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
 
   static _notInlinedMessages(_) => <String, Function>{
-        "goschoolUi": MessageLookupByLibrary.simpleMessage("GoSchool UI")
+        "companyName": MessageLookupByLibrary.simpleMessage("Company Name"),
+        "emailId": MessageLookupByLibrary.simpleMessage("Email ID"),
+        "forgot": MessageLookupByLibrary.simpleMessage("Forgot?"),
+        "fullName": MessageLookupByLibrary.simpleMessage("Full Name"),
+        "goschoolUi": MessageLookupByLibrary.simpleMessage("GoSchool UI"),
+        "login": MessageLookupByLibrary.simpleMessage("Login"),
+        "newToIthicklogistics":
+            MessageLookupByLibrary.simpleMessage("New to iThickLogistics?"),
+        "orLoginWith":
+            MessageLookupByLibrary.simpleMessage("Or, login with..."),
+        "orRegisterWithEmail":
+            MessageLookupByLibrary.simpleMessage("Or, register with email..."),
+        "password": MessageLookupByLibrary.simpleMessage("Password"),
+        "recentAlerts": MessageLookupByLibrary.simpleMessage("Recent Alerts"),
+        "recentHomework":
+            MessageLookupByLibrary.simpleMessage("Recent Homework"),
+        "register": MessageLookupByLibrary.simpleMessage("Register"),
+        "search": MessageLookupByLibrary.simpleMessage("Search"),
+        "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
+        "viewAll": MessageLookupByLibrary.simpleMessage("View all")
       };
 }

@@ -1,8 +1,13 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:ui/generated/l10n.dart';
 import 'package:ui/screens/welcome_screen.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  S.load(Locale('en'));
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
@@ -15,6 +20,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Go School',
+      localizationsDelegates: [S.delegate],
       theme: ThemeData(
         primaryColor: Color(0xFF202328),
         accentColor: Color(0xFF63CF93),

@@ -1,3 +1,18 @@
 {
-  "goschoolUi": "GoSchool UI"
+  "goschoolUi": "GoSchool UI",
+  "search": "Search",
+  "recentAlerts": "Recent Alerts",
+  "viewAll": "View all",
+  "recentHomework": "Recent Homework",
+  "login": "Login",
+  "emailId": "Email ID",
+  "password": "Password",
+  "forgot": "Forgot?",
+  "orLoginWith": "Or, login with...",
+  "newToIthicklogistics": "New to iThickLogistics?",
+  "register": "Register",
+  "signUp": "Sign Up",
+  "orRegisterWithEmail": "Or, register with email...",
+  "fullName": "Full Name",
+  "companyName": "Company Name"
 }

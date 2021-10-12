@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:ui/constants.dart';
+import 'package:ui/generated/l10n.dart';
 import 'package:ui/widgets/header.dart';
 import 'package:ui/widgets/recents_alerts.dart';
 import 'package:ui/widgets/recents_homeworks.dart';
-
 class HomeScreen extends StatefulWidget {
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -26,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 border: InputBorder.none,
                 fillColor: Theme.of(context).primaryColor,
                 filled: true,
-                hintText: "Search",
+                hintText: S.of(context).search,
                 hintStyle: TextStyle(color: kTextColor),
                 prefixIcon: Icon(Icons.search, color: kTextColor, size: 26.0),
                 enabledBorder: OutlineInputBorder(
@@ -49,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  "Recent Alerts",
+                  S.of(context).recentAlerts,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 20.0,
@@ -60,14 +60,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 RecentsAlerts(),
                 Center(
                   child: Text(
-                    "View all",
+                    S.of(context).viewAll,
                     style: TextStyle(
                         color: Theme.of(context).accentColor, fontSize: 15.0),
                   ),
                 ),
                 SizedBox(height: 20.0),
                 Text(
-                  "Recent Homework",
+                  S.of(context).recentHomework,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 20.0,
@@ -78,7 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 RecentHomeworks(),
                 Center(
                   child: Text(
-                    "View all",
+                    S.of(context).viewAll,
                     style: TextStyle(
                         color: Theme.of(context).accentColor, fontSize: 15.0),
                   ),

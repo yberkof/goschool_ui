@@ -5,12 +5,14 @@ class AppTextField extends StatelessWidget {
   final String hint;
   final VoidCallback helpOnTap;
   final Widget helpContent;
+  final TextEditingController controller;
 
   AppTextField({
     @required this.icon,
     @required this.hint,
     this.helpOnTap,
     this.helpContent,
+    this.controller,
   });
 
   @override
@@ -26,6 +28,7 @@ class AppTextField extends StatelessWidget {
               borderSide: BorderSide(color: Colors.black12),
             ),
           ),
+          controller: controller,
         ),
         if (helpContent != null && helpOnTap != null)
           Container(

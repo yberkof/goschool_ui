@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "700818926866",
+    "project_id": "go-school-d5c01",
+    "storage_bucket": "go-school-d5c01.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:700818926866:android:b72ca1c3015b02a436d7cb",
+        "android_client_info": {
+          "package_name": "com.ahmed.school"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "700818926866-m3vmkdsfm4trig9of72u0afnl5hll4sh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ahmed.school",
+            "certificate_hash": "70fc8ebec20a177cda0dbcc258ee453bbdfdf03d"
+          }
+        },
+        {
+          "client_id": "700818926866-692rgs0dh4qhar1l65raqdhl94du95qb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgDW89m098MyqVLEbTrxNxMb97TKczWEY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "700818926866-692rgs0dh4qhar1l65raqdhl94du95qb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

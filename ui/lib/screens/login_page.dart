@@ -1,7 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:ui/config/themes.dart';
+import 'package:ui/generated/l10n.dart';
 import 'package:ui/screens/register_page.dart';
+import 'package:ui/services/auth_service.dart';
 import 'package:ui/widgets/app_outlinebutton.dart';
 import 'package:ui/widgets/app_textfield.dart';
 import 'package:ui/widgets/bottom_navigation.dart';
@@ -15,6 +18,10 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   TapGestureRecognizer registerOnTap;
 
+  TextEditingController _passwordController;
+
+  TextEditingController _emailController;
+
   @override
   void initState() {
     registerOnTap = TapGestureRecognizer();
@@ -27,6 +34,8 @@ class _LoginPageState extends State<LoginPage> {
           ),
         );
       };
+    _emailController = TextEditingController();
+    _passwordController = TextEditingController();
     super.initState();
   }
 
@@ -44,7 +53,7 @@ class _LoginPageState extends State<LoginPage> {
                 height: 250,
               ),
               Text(
-                "Login",
+                S.of(context).login,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   color: Themes.colorHeader,
@@ -53,17 +62,19 @@ class _LoginPageState extends State<LoginPage> {
               ),
               SizedBox(height: 12),
               AppTextField(
-                hint: "Email ID",
+                hint: S.of(context).emailId,
                 icon: FlutterIcons.email,
+                controller: _emailController,
               ),
               SizedBox(height: 12),
               AppTextField(
-                hint: "Password",
+                hint: S.of(context).password,
                 icon: FlutterIcons.lock,
                 helpContent: Text(
-                  "Forgot?",
+                  S.of(context).forgot,
                   style: TextStyle(fontSize: 16, color: Themes.colorPrimary),
                 ),
+                controller: _passwordController,
                 helpOnTap: () {},
               ),
               SizedBox(height: 12),
@@ -71,7 +82,7 @@ class _LoginPageState extends State<LoginPage> {
                 color: Themes.colorPrimary,
                 padding: EdgeInsets.all(16),
                 child: Text(
-                  "Login",
+                  S.of(context).login,
                   style: TextStyle(color: Colors.white, fontSize: 16),
                 ),
                 shape: RoundedRectangleBorder(
@@ -80,13 +91,17 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 onPressed: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (c) => BottomNavigation()));
+                  AuthenticationService(FirebaseAuth.instance)
+                      .signIn(_emailController.text, _passwordController.text)
+                      .then((value) => value
+                          ? Navigator.of(context).push(MaterialPageRoute(
+                              builder: (c) => BottomNavigation()))
+                          : print("Error Login"));
                 },
               ),
               SizedBox(height: 24),
               Text(
-                "Or, login with...",
+                S.of(context).orLoginWith,
                 style: TextStyle(color: Colors.black38),
                 textAlign: TextAlign.center,
               ),
@@ -118,10 +133,10 @@ class _LoginPageState extends State<LoginPage> {
               SizedBox(height: 12),
               Text.rich(
                 TextSpan(
-                  text: "New to iThickLogistics? ",
+                  text: S.of(context).newToIthicklogistics,
                   children: [
                     TextSpan(
-                      text: "Register",
+                      text: S.of(context).register,
                       style: TextStyle(
                         color: Themes.colorPrimary,
                         fontWeight: FontWeight.bold,
