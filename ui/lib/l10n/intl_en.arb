@@ -9,10 +9,14 @@
   "password": "Password",
   "forgot": "Forgot?",
   "orLoginWith": "Or, login with...",
-  "newToIthicklogistics": "New to iThickLogistics?",
+  "newToIthicklogistics": "New to iThickLogistics? ",
   "register": "Register",
   "signUp": "Sign Up",
   "orRegisterWithEmail": "Or, register with email...",
   "fullName": "Full Name",
-  "companyName": "Company Name"
+  "schoolName": "School Name",
+  "lastName": "Last Name",
+  "firstName": "First Name",
+  "failed": "Failed",
+  "retry": "Retry?"
 }

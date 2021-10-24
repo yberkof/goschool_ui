@@ -137,10 +137,10 @@ class S {
     );
   }
 
-  /// `New to iThickLogistics?`
+  /// `New to iThickLogistics? `
   String get newToIthicklogistics {
     return Intl.message(
-      'New to iThickLogistics?',
+      'New to iThickLogistics? ',
       name: 'newToIthicklogistics',
       desc: '',
       args: [],
@@ -187,11 +187,51 @@ class S {
     );
   }
 
-  /// `Company Name`
-  String get companyName {
+  /// `School Name`
+  String get schoolName {
     return Intl.message(
-      'Company Name',
-      name: 'companyName',
+      'School Name',
+      name: 'schoolName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Last Name`
+  String get lastName {
+    return Intl.message(
+      'Last Name',
+      name: 'lastName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `First Name`
+  String get firstName {
+    return Intl.message(
+      'First Name',
+      name: 'firstName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Failed`
+  String get failed {
+    return Intl.message(
+      'Failed',
+      name: 'failed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Retry?`
+  String get retry {
+    return Intl.message(
+      'Retry?',
+      name: 'retry',
       desc: '',
       args: [],
     );

@@ -33,6 +33,9 @@ dependencies:
   intl:
   firebase_auth:
   firebase_core:
+  cloud_firestore:
+  cool_alert:
+
 
 dev_dependencies:
   flutter_test:

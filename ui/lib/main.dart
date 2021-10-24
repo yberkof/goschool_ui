@@ -20,7 +20,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Go School',
-      localizationsDelegates: [S.delegate],
+      localizationsDelegates: [
+        S.delegate,
+        DefaultMaterialLocalizations.delegate
+      ],
       theme: ThemeData(
         primaryColor: Color(0xFF202328),
         accentColor: Color(0xFF63CF93),

@@ -1,10 +1,37 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:ui/config/themes.dart';
 import 'package:ui/generated/l10n.dart';
+import 'package:ui/models/user.dart' as user;
+import 'package:ui/services/auth_service.dart';
+import 'package:ui/services/users_service.dart';
+import 'package:ui/utils/alert_helper.dart';
 import 'package:ui/widgets/app_outlinebutton.dart';
 import 'package:ui/widgets/app_textfield.dart';
-import 'package:ui/widgets/fluttericon.dart';
-class RegisterPage extends StatelessWidget {
+
+class RegisterPage extends StatefulWidget {
+  @override
+  _RegisterPageState createState() => _RegisterPageState();
+}
+
+class _RegisterPageState extends State<RegisterPage> {
+  TextEditingController _emailController;
+  TextEditingController _passwordController;
+  TextEditingController _firstNameController;
+  TextEditingController _lastNameController;
+  TextEditingController _schoolNameController;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _emailController = TextEditingController();
+    _passwordController = TextEditingController();
+    _firstNameController = TextEditingController();
+    _lastNameController = TextEditingController();
+    _schoolNameController = TextEditingController();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,23 +99,70 @@ class RegisterPage extends StatelessWidget {
               ),
               SizedBox(height: 24),
               AppTextField(
+                controller: _emailController,
                 hint: S.of(context).emailId,
-                icon: FlutterIcons.email,
+                icon: Icons.email,
               ),
               SizedBox(height: 12),
               AppTextField(
-                hint: S.of(context).password,
-                icon: FlutterIcons.lock,
+                  controller: _passwordController,
+                  hint: S.of(context).password,
+                  icon: Icons.lock,
+                  isObscureText: true),
+              SizedBox(height: 12),
+              AppTextField(
+                controller: _firstNameController,
+                hint: S.of(context).firstName,
+                icon: Icons.person,
               ),
               SizedBox(height: 12),
               AppTextField(
-                hint: S.of(context).fullName,
-                icon: FlutterIcons.user,
+                controller: _lastNameController,
+                hint: S.of(context).lastName,
+                icon: Icons.person,
               ),
               SizedBox(height: 12),
               AppTextField(
-                hint: S.of(context).companyName,
-                icon: FlutterIcons.shop,
+                controller: _schoolNameController,
+                hint: S.of(context).schoolName,
+                icon: Icons.school,
+              ),
+              SizedBox(height: 12),
+              FlatButton(
+                color: Themes.colorPrimary,
+                padding: EdgeInsets.all(16),
+                child: Text(
+                  S.of(context).register,
+                  style: TextStyle(color: Colors.white, fontSize: 16),
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(16),
+                  ),
+                ),
+                onPressed: () {
+                  AlertHelper.showProgressDialog(context);
+                  AuthenticationService(FirebaseAuth.instance)
+                      .signUp(context, _emailController.text,
+                          _passwordController.text)
+                      .then((value) {
+                    if (value != null)
+                      UsersService.shared
+                          .addUser(
+                              context,
+                              user.User(
+                                  email: _emailController.text,
+                                  firstName: _firstNameController.text,
+                                  lastName: _lastNameController.text,
+                                  schoolName: _schoolNameController.text,
+                                  uid: value.user.uid,
+                                  role: 'S'))
+                          .then((value) {
+                        AlertHelper.hideProgressDialog(context);
+                        Navigator.of(context).pop();
+                      });
+                  });
+                },
               ),
               SizedBox(height: 12),
             ],

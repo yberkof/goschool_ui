@@ -5,10 +5,10 @@ import 'package:ui/config/themes.dart';
 import 'package:ui/generated/l10n.dart';
 import 'package:ui/screens/register_page.dart';
 import 'package:ui/services/auth_service.dart';
+import 'package:ui/utils/alert_helper.dart';
 import 'package:ui/widgets/app_outlinebutton.dart';
 import 'package:ui/widgets/app_textfield.dart';
 import 'package:ui/widgets/bottom_navigation.dart';
-import 'package:ui/widgets/fluttericon.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -63,13 +63,14 @@ class _LoginPageState extends State<LoginPage> {
               SizedBox(height: 12),
               AppTextField(
                 hint: S.of(context).emailId,
-                icon: FlutterIcons.email,
+                icon: Icons.email,
                 controller: _emailController,
               ),
               SizedBox(height: 12),
               AppTextField(
                 hint: S.of(context).password,
-                icon: FlutterIcons.lock,
+                icon: Icons.lock,
+                isObscureText: true,
                 helpContent: Text(
                   S.of(context).forgot,
                   style: TextStyle(fontSize: 16, color: Themes.colorPrimary),
@@ -91,12 +92,17 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 onPressed: () {
+                  AlertHelper.showProgressDialog(context);
                   AuthenticationService(FirebaseAuth.instance)
-                      .signIn(_emailController.text, _passwordController.text)
-                      .then((value) => value
-                          ? Navigator.of(context).push(MaterialPageRoute(
-                              builder: (c) => BottomNavigation()))
-                          : print("Error Login"));
+                      .signIn(context, _emailController.text,
+                          _passwordController.text)
+                      .then((value) {
+                    if (value != null) {
+                      AlertHelper.hideProgressDialog(context);
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (c) => BottomNavigation()));
+                    }
+                  });
                 },
               ),
               SizedBox(height: 24),

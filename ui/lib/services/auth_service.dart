@@ -1,4 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:ui/utils/alert_helper.dart';
 
 class AuthenticationService {
   final FirebaseAuth _firebaseAuth;
@@ -9,13 +11,16 @@ class AuthenticationService {
 
   Stream<User> get authStateChange => _firebaseAuth.authStateChanges();
 
-  Future<bool> signIn(String email, String password) async {
+  Future<UserCredential> signIn(
+      BuildContext context, String email, String password) async {
     try {
-      await _firebaseAuth.signInWithEmailAndPassword(
-          email: email, password: password);
-      return true;
+      UserCredential userCredential = await _firebaseAuth
+          .signInWithEmailAndPassword(email: email, password: password);
+      return userCredential;
     } on FirebaseAuthException catch (e) {
-      return false;
+      AlertHelper.hideProgressDialog(context);
+      AlertHelper.showError(context, e.message);
+      return null;
     }
   }
 
@@ -28,13 +33,16 @@ class AuthenticationService {
     }
   }
 
-  Future<String> signUp(String email, String password) async {
+  Future<UserCredential> signUp(
+      BuildContext context, String email, String password) async {
     try {
-      await _firebaseAuth.createUserWithEmailAndPassword(
-          email: email, password: password);
-      return "Sign up done";
+      UserCredential userCredential = await _firebaseAuth
+          .createUserWithEmailAndPassword(email: email, password: password);
+      return userCredential;
     } on FirebaseAuthException catch (e) {
-      return e.message;
+      AlertHelper.hideProgressDialog(context);
+      AlertHelper.showError(context, e.message);
+      return null;
     }
   }
 }
