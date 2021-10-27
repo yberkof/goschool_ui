@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:ui/constants.dart';
 import 'package:ui/generated/l10n.dart';
+import 'package:ui/models/app_model.dart';
+import 'package:ui/utils/app_model_helper.dart';
 import 'package:ui/widgets/header.dart';
 import 'package:ui/widgets/recents_alerts.dart';
 import 'package:ui/widgets/recents_homeworks.dart';
+
 class HomeScreen extends StatefulWidget {
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -11,7 +14,20 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    if (AppModel.shared.currentUser == null)
+      AppModelHelper.shared.loadCurrentUser(() {
+        setState(() {});
+      });
+  }
+
+  @override
   Widget build(BuildContext context) {
+    if (AppModel.shared.currentUser == null) {
+      return Container();
+    }
     return SafeArea(
       child: ListView(
         children: <Widget>[

@@ -24,4 +24,14 @@ class User {
       'uid': uid
     };
   }
+
+  static User fromMap(Map<String, dynamic> data) {
+    return User(
+        uid: data['uid'],
+        role: data['role'],
+        schoolName: data['schoolName'],
+        lastName: data['lastName'],
+        firstName: data['firstName'],
+        email: data['email']);
+  }
 }

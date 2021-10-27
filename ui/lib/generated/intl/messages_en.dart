@@ -31,7 +31,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "lastName": MessageLookupByLibrary.simpleMessage("Last Name"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "newToIthicklogistics":
-            MessageLookupByLibrary.simpleMessage("New to iThickLogistics? "),
+            MessageLookupByLibrary.simpleMessage(" New to Go School? "),
         "orLoginWith":
             MessageLookupByLibrary.simpleMessage("Or, login with..."),
         "orRegisterWithEmail":

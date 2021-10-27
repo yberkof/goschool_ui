@@ -137,10 +137,10 @@ class S {
     );
   }
 
-  /// `New to iThickLogistics? `
+  /// ` New to Go School? `
   String get newToIthicklogistics {
     return Intl.message(
-      'New to iThickLogistics? ',
+      ' New to Go School? ',
       name: 'newToIthicklogistics',
       desc: '',
       args: [],

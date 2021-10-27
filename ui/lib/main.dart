@@ -1,8 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:ui/generated/l10n.dart';
 import 'package:ui/screens/welcome_screen.dart';
+import 'package:ui/widgets/bottom_navigation.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,7 +32,9 @@ class MyApp extends StatelessWidget {
         backgroundColor: Color(0xFF12171D),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: WelcomeScreen(),
+      home: FirebaseAuth.instance.currentUser != null
+          ? BottomNavigation()
+          : WelcomeScreen(),
     );
   }
 }
