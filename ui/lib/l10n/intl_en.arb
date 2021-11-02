@@ -18,5 +18,8 @@
   "lastName": "Last Name",
   "firstName": "First Name",
   "failed": "Failed",
-  "retry": "Retry?"
+  "retry": "Retry?",
+  "name": "Name:",
+  "email": "Email:",
+  "logout": "Logout"
 }

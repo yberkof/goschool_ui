@@ -22,6 +22,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
 
   static _notInlinedMessages(_) => <String, Function>{
+        "email": MessageLookupByLibrary.simpleMessage("Email:"),
         "emailId": MessageLookupByLibrary.simpleMessage("Email ID"),
         "failed": MessageLookupByLibrary.simpleMessage("Failed"),
         "firstName": MessageLookupByLibrary.simpleMessage("First Name"),
@@ -30,6 +31,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "goschoolUi": MessageLookupByLibrary.simpleMessage("GoSchool UI"),
         "lastName": MessageLookupByLibrary.simpleMessage("Last Name"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
+        "logout": MessageLookupByLibrary.simpleMessage("Logout"),
+        "name": MessageLookupByLibrary.simpleMessage("Name:"),
         "newToIthicklogistics":
             MessageLookupByLibrary.simpleMessage(" New to Go School? "),
         "orLoginWith":

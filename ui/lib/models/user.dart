@@ -5,9 +5,11 @@ class User {
   final String schoolName;
   final String role;
   final String uid;
+  final String image;
 
   User(
-      {this.uid,
+      {this.image,
+      this.uid,
       this.email,
       this.firstName,
       this.lastName,
@@ -21,7 +23,8 @@ class User {
       'lastName': lastName,
       'schoolName': schoolName,
       'role': role,
-      'uid': uid
+      'uid': uid,
+      'image': image
     };
   }
 
@@ -32,6 +35,7 @@ class User {
         schoolName: data['schoolName'],
         lastName: data['lastName'],
         firstName: data['firstName'],
-        email: data['email']);
+        email: data['email'],
+        image: data['image']);
   }
 }

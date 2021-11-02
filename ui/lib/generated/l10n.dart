@@ -236,6 +236,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Name:`
+  String get name {
+    return Intl.message(
+      'Name:',
+      name: 'name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email:`
+  String get email {
+    return Intl.message(
+      'Email:',
+      name: 'email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Logout`
+  String get logout {
+    return Intl.message(
+      'Logout',
+      name: 'logout',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -35,7 +35,12 @@ dependencies:
   firebase_core:
   cloud_firestore:
   cool_alert:
-
+  marquee:
+  cached_network_image:
+  firebase_storage:
+  firebase_analytics:
+  image_picker:
+  path:
 
 dev_dependencies:
   flutter_test:

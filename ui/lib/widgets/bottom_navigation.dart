@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:ui/constants.dart';
 import 'package:ui/screens/classes_screen.dart';
 import 'package:ui/screens/home_screen.dart';
+import 'package:ui/screens/settings_screen.dart';
 
 class BottomNavigation extends StatefulWidget {
   @override
@@ -15,13 +16,15 @@ class _BottomNavigationState extends State<BottomNavigation> {
   List<Widget> _pages;
   HomeScreen _homeScreen;
   ClassesScreen _classesScreen;
+  SettingsScreen _settingsScreen;
 
   @override
   void initState() {
     super.initState();
     _homeScreen = HomeScreen();
     _classesScreen = ClassesScreen();
-    _pages = [_homeScreen, _classesScreen, _homeScreen];
+    _settingsScreen = SettingsScreen();
+    _pages = [_homeScreen, _classesScreen, _homeScreen, _settingsScreen];
     _currentPage = _homeScreen;
   }
 
@@ -55,8 +58,8 @@ class _BottomNavigationState extends State<BottomNavigation> {
           onTap: (int index) {
             setState(() {
               _selectedTab = index;
-              if (index == 0 || index == 1 || index == 2)
-                _currentPage = _pages[index];
+              // if (index == 0 || index == 1 || index == 2)
+              _currentPage = _pages[index];
             });
           },
           items: [
@@ -64,7 +67,9 @@ class _BottomNavigationState extends State<BottomNavigation> {
               icon: SvgPicture.asset(
                 "assets/icons/house.svg",
                 width: 35.0,
-                color: _selectedTab == 0 ? Theme.of(context).accentColor : kTextColor,
+                color: _selectedTab == 0
+                    ? Theme.of(context).accentColor
+                    : kTextColor,
               ),
               title: SizedBox.shrink(),
             ),
@@ -72,7 +77,9 @@ class _BottomNavigationState extends State<BottomNavigation> {
               icon: SvgPicture.asset(
                 "assets/icons/read_book.svg",
                 width: 35.0,
-                color: _selectedTab == 1 ? Theme.of(context).accentColor : kTextColor,
+                color: _selectedTab == 1
+                    ? Theme.of(context).accentColor
+                    : kTextColor,
               ),
               title: SizedBox.shrink(),
             ),
@@ -80,7 +87,9 @@ class _BottomNavigationState extends State<BottomNavigation> {
               icon: SvgPicture.asset(
                 "assets/icons/homework.svg",
                 width: 35.0,
-                color: _selectedTab == 2 ? Theme.of(context).accentColor : kTextColor,
+                color: _selectedTab == 2
+                    ? Theme.of(context).accentColor
+                    : kTextColor,
               ),
               title: SizedBox.shrink(),
             ),
@@ -88,7 +97,9 @@ class _BottomNavigationState extends State<BottomNavigation> {
               icon: SvgPicture.asset(
                 "assets/icons/comment.svg",
                 width: 35.0,
-                color: _selectedTab == 3 ? Theme.of(context).accentColor : kTextColor,
+                color: _selectedTab == 3
+                    ? Theme.of(context).accentColor
+                    : kTextColor,
               ),
               title: SizedBox.shrink(),
             ),
