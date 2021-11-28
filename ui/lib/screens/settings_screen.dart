@@ -5,6 +5,8 @@ import 'package:ui/generated/l10n.dart';
 import 'package:ui/models/app_model.dart';
 import 'package:ui/screens/login_page.dart';
 import 'package:ui/screens/upload_image_screen.dart';
+import 'package:ui/services/auth_service.dart';
+import 'package:ui/utils/alert_helper.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({Key key}) : super(key: key);
@@ -62,12 +64,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       MaterialStateProperty.all<Color>(Colors.white),
                 ),
                 onPressed: () {
-                  FirebaseAuth.instance.signOut().then((value) {
-                    Navigator.popUntil(
-                        context, (route) => Navigator.of(context).canPop());
-                  });
-                  Navigator.push(
-                      context, MaterialPageRoute(builder: (c) => LoginPage()));
+                  AuthenticationService(FirebaseAuth.instance).logout(context);
                 },
                 child: Container(
                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),

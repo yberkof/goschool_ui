@@ -99,7 +99,7 @@ class _LoginPageState extends State<LoginPage> {
                       .then((value) {
                     if (value != null) {
                       AlertHelper.hideProgressDialog(context);
-                      Navigator.of(context).push(MaterialPageRoute(
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(
                           builder: (c) => BottomNavigation()));
                     }
                   });

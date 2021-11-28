@@ -50,7 +50,7 @@ class Header extends StatelessWidget {
           width: MediaQuery.of(context).size.width * 0.6,
           height: 30,
           child: Marquee(
-            text: AppModel.shared.currentUser.schoolName,
+            text: AppModel.shared.currentUser.schoolName.length<20?AppModel.shared.currentUser.schoolName+" "*35:AppModel.shared.currentUser.schoolName,
             style: _getTextStyle(),
             scrollAxis: Axis.horizontal,
             crossAxisAlignment: CrossAxisAlignment.start,

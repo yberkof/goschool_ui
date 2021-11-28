@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:ui/models/app_model.dart';
+import 'package:ui/screens/login_page.dart';
 import 'package:ui/utils/alert_helper.dart';
 
 class AuthenticationService {
@@ -24,9 +26,16 @@ class AuthenticationService {
     }
   }
 
-  Future<String> logout() async {
+  Future<String> logout(BuildContext context) async {
     try {
+      AlertHelper.showProgressDialog(context);
       await _firebaseAuth.signOut();
+      AppModel.shared.currentUser=null;
+        AlertHelper.hideProgressDialog(context);
+        Navigator.popUntil(
+            context, (route) => Navigator.of(context).canPop());
+    Navigator.push(
+    context, MaterialPageRoute(builder: (c) => LoginPage()));
       return "Signed out";
     } on FirebaseAuthException catch (e) {
       return "Error Signout : " + e.message;
