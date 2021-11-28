@@ -154,7 +154,7 @@ class _LoginPageState extends State<LoginPage> {
                 textAlign: TextAlign.center,
                 style: TextStyle(color: Colors.black54),
               ),
-              SizedBox(height: 12),
+              SizedBox(height: 16),
             ],
           ),
         ),
