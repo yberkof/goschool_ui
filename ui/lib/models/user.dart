@@ -1,11 +1,11 @@
 class User {
-  final String email;
-  final String firstName;
-  final String lastName;
-  final String schoolName;
-  final String role;
-  final String uid;
-  final String image;
+ String email;
+ String firstName;
+ String lastName;
+ String schoolName;
+ String role;
+ String uid;
+ String image='';
 
   User(
       {this.image,

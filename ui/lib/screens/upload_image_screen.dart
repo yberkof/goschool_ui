@@ -4,6 +4,9 @@ import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart';
+import 'package:ui/models/app_model.dart';
+import 'package:ui/services/users_service.dart';
+import 'package:ui/utils/alert_helper.dart';
 
 class UploadImageScreen extends StatefulWidget {
   @override
@@ -26,6 +29,7 @@ class _UploadImageScreenState extends State<UploadImageScreen> {
   }
 
   Future uploadImageToFirebase(BuildContext context) async {
+    AlertHelper.showProgressDialog(context);
     String fileName = basename(_imageFile.path);
     firebase_storage.Reference firebaseStorageRef = firebase_storage
         .FirebaseStorage.instance
@@ -34,8 +38,12 @@ class _UploadImageScreenState extends State<UploadImageScreen> {
     firebase_storage.TaskSnapshot taskSnapshot =
         await firebaseStorageRef.putFile(_imageFile);
     taskSnapshot.ref.getDownloadURL().then(
-          (value) => print("Done: $value"),
-        );
+      (value) {
+        AppModel.shared.currentUser.value.image = value;
+        UsersService.shared
+            .editUser(context, AppModel.shared.currentUser.value);
+      },
+    );
   }
 
   @override
@@ -62,7 +70,7 @@ class _UploadImageScreenState extends State<UploadImageScreen> {
                   padding: const EdgeInsets.all(8.0),
                   child: Center(
                     child: Text(
-                      "Uploading Image to Firebase Storage",
+                      "Update Your Image",
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 28,
@@ -85,6 +93,7 @@ class _UploadImageScreenState extends State<UploadImageScreen> {
                               : FlatButton(
                                   child: Icon(
                                     Icons.add_a_photo,
+                                    color: Colors.white,
                                     size: 50,
                                   ),
                                   onPressed: pickImage,
@@ -121,7 +130,7 @@ class _UploadImageScreenState extends State<UploadImageScreen> {
               onPressed: () => uploadImageToFirebase(context),
               child: Text(
                 "Upload Image",
-                style: TextStyle(fontSize: 20),
+                style: TextStyle(fontSize: 20, color: Colors.white),
               ),
             ),
           ),

@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:ui/generated/l10n.dart';
 import 'package:ui/models/app_model.dart';
 import 'package:ui/screens/login_page.dart';
@@ -8,11 +9,10 @@ import 'package:ui/screens/upload_image_screen.dart';
 import 'package:ui/services/auth_service.dart';
 import 'package:ui/utils/alert_helper.dart';
 
-class SettingsScreen extends StatefulWidget {
-  const SettingsScreen({Key key}) : super(key: key);
 
+class SettingsScreen extends StatefulWidget {
   @override
-  _SettingsScreenState createState() => _SettingsScreenState();
+  State<SettingsScreen> createState() => _SettingsScreenState();
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
@@ -34,18 +34,29 @@ class _SettingsScreenState extends State<SettingsScreen> {
   }
 
   Widget _buildCircleAvatar(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        Navigator.of(context)
-            .push(MaterialPageRoute(builder: (c) => UploadImageScreen()));
-      },
-      child: CircleAvatar(
-        radius: 100.0,
-        backgroundImage: AppModel.shared.currentUser.image != null
-            ? CachedNetworkImageProvider(AppModel.shared.currentUser.image)
-            : AssetImage("assets/images/user.png"),
-      ),
-    );
+
+        return InkWell(
+          onTap: () {
+            changePhoto(context);
+          },
+          child: CircleAvatar(
+            radius: 100.0,
+            backgroundImage: AppModel.shared.currentUser.value.image != null
+                ? CachedNetworkImageProvider( AppModel.shared.currentUser.value.image
+            )
+                : AssetImage("assets/images/user.png"),
+          ),
+        );
+  }
+
+  void changePhoto(BuildContext context) async{
+    await
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (c) => UploadImageScreen()));
+    setState(() {
+
+    });
+
   }
 
   Padding _buildLogoutButton(BuildContext context) {

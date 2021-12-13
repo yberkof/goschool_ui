@@ -16,7 +16,7 @@ class AppModelHelper {
         .get()
         .then((value) {
       if (value.size == 1) {
-        AppModel.shared.currentUser = user.User.fromMap(value.docs[0].data());
+        AppModel.shared.setUser( user.User.fromMap(value.docs[0].data()));
         callback.call();
       }
     });

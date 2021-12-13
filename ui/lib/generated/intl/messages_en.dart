@@ -20,34 +20,29 @@ class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
-
-  static _notInlinedMessages(_) => <String, Function>{
-        "email": MessageLookupByLibrary.simpleMessage("Email:"),
-        "emailId": MessageLookupByLibrary.simpleMessage("Email ID"),
-        "failed": MessageLookupByLibrary.simpleMessage("Failed"),
-        "firstName": MessageLookupByLibrary.simpleMessage("First Name"),
-        "forgot": MessageLookupByLibrary.simpleMessage("Forgot?"),
-        "fullName": MessageLookupByLibrary.simpleMessage("Full Name"),
-        "goschoolUi": MessageLookupByLibrary.simpleMessage("GoSchool UI"),
-        "lastName": MessageLookupByLibrary.simpleMessage("Last Name"),
-        "login": MessageLookupByLibrary.simpleMessage("Login"),
-        "logout": MessageLookupByLibrary.simpleMessage("Logout"),
-        "name": MessageLookupByLibrary.simpleMessage("Name:"),
-        "newToIthicklogistics":
-            MessageLookupByLibrary.simpleMessage(" New to Go School? "),
-        "orLoginWith":
-            MessageLookupByLibrary.simpleMessage("Or, login with..."),
-        "orRegisterWithEmail":
-            MessageLookupByLibrary.simpleMessage("Or, register with email..."),
-        "password": MessageLookupByLibrary.simpleMessage("Password"),
-        "recentAlerts": MessageLookupByLibrary.simpleMessage("Recent Alerts"),
-        "recentHomework":
-            MessageLookupByLibrary.simpleMessage("Recent Homework"),
-        "register": MessageLookupByLibrary.simpleMessage("Register"),
-        "retry": MessageLookupByLibrary.simpleMessage("Retry?"),
-        "schoolName": MessageLookupByLibrary.simpleMessage("School Name"),
-        "search": MessageLookupByLibrary.simpleMessage("Search"),
-        "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
-        "viewAll": MessageLookupByLibrary.simpleMessage("View all")
-      };
+  static _notInlinedMessages(_) => <String, Function> {
+    "email" : MessageLookupByLibrary.simpleMessage("Email:"),
+    "emailId" : MessageLookupByLibrary.simpleMessage("Email ID"),
+    "failed" : MessageLookupByLibrary.simpleMessage("Failed"),
+    "firstName" : MessageLookupByLibrary.simpleMessage("First Name"),
+    "forgot" : MessageLookupByLibrary.simpleMessage("Forgot?"),
+    "fullName" : MessageLookupByLibrary.simpleMessage("Full Name"),
+    "goschoolUi" : MessageLookupByLibrary.simpleMessage("GoSchool UI"),
+    "lastName" : MessageLookupByLibrary.simpleMessage("Last Name"),
+    "login" : MessageLookupByLibrary.simpleMessage("Login"),
+    "logout" : MessageLookupByLibrary.simpleMessage("Logout"),
+    "name" : MessageLookupByLibrary.simpleMessage("Name:"),
+    "newToIthicklogistics" : MessageLookupByLibrary.simpleMessage(" New to Go School? "),
+    "orLoginWith" : MessageLookupByLibrary.simpleMessage("Or, login with..."),
+    "orRegisterWithEmail" : MessageLookupByLibrary.simpleMessage("Or, register with email..."),
+    "password" : MessageLookupByLibrary.simpleMessage("Password"),
+    "recentAlerts" : MessageLookupByLibrary.simpleMessage("Recent Alerts"),
+    "recentHomework" : MessageLookupByLibrary.simpleMessage("Recent Homework"),
+    "register" : MessageLookupByLibrary.simpleMessage("Register"),
+    "retry" : MessageLookupByLibrary.simpleMessage("Retry?"),
+    "schoolName" : MessageLookupByLibrary.simpleMessage("School Name"),
+    "search" : MessageLookupByLibrary.simpleMessage("Search"),
+    "signUp" : MessageLookupByLibrary.simpleMessage("Sign Up"),
+    "viewAll" : MessageLookupByLibrary.simpleMessage("View all")
+  };
 }

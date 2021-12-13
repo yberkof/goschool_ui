@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:marquee/marquee.dart';
 import 'package:ui/generated/l10n.dart';
 import 'package:ui/models/app_model.dart';
@@ -8,37 +9,45 @@ import 'package:ui/models/app_model.dart';
 class Header extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.fromLTRB(8.0, 50.0, 8.0, 8.0),
-      child: Column(
-        children: [
-          _buildFirstRow(context),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
+    return GetX<AppModel>(
+      init: AppModel.shared,
+      builder: (appModel) {
+        if(appModel.currentUser.value==null)
+          return Container();
+        return Padding(
+            padding: EdgeInsets.fromLTRB(8.0, 50.0, 8.0, 8.0),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  S.of(context).name +
-                      ' ' +
-                      AppModel.shared.currentUser.firstName +
-                      ' ' +
-                      AppModel.shared.currentUser.lastName,
-                  style: _getTextStyle(fontSize: 20),
-                ),
-                Text(
-                  S.of(context).email + ' ' + AppModel.shared.currentUser.email,
-                  style: _getTextStyle(fontSize: 20),
-                ),
+                _buildFirstRow(context, appModel),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        S.of(context).name +
+                            ' ' +
+                            appModel.currentUser.value.firstName +
+                            ' ' +
+                            appModel.currentUser.value.lastName,
+                        style: _getTextStyle(fontSize: 20),
+                      ),
+                      Text(
+                        S.of(context).email +
+                            ' ' +
+                            appModel.currentUser.value.email,
+                        style: _getTextStyle(fontSize: 20),
+                      ),
+                    ],
+                  ),
+                )
               ],
-            ),
-          )
-        ],
-      ),
+            ));
+      },
     );
   }
 
-  Row _buildFirstRow(BuildContext context) {
+  Row _buildFirstRow(BuildContext context, AppModel appModel) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: <Widget>[
@@ -50,7 +59,9 @@ class Header extends StatelessWidget {
           width: MediaQuery.of(context).size.width * 0.6,
           height: 30,
           child: Marquee(
-            text: AppModel.shared.currentUser.schoolName.length<20?AppModel.shared.currentUser.schoolName+" "*35:AppModel.shared.currentUser.schoolName,
+            text: appModel.currentUser.value.schoolName.length < 20
+                ? appModel.currentUser.value.schoolName + " " * 35
+                : appModel.currentUser.value.schoolName,
             style: _getTextStyle(),
             scrollAxis: Axis.horizontal,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -64,11 +75,13 @@ class Header extends StatelessWidget {
             decelerationCurve: Curves.easeOut,
           ),
         ),
-        CircleAvatar(
-          radius: 25.0,
-          backgroundImage: AppModel.shared.currentUser.image != null
-              ? CachedNetworkImageProvider(AppModel.shared.currentUser.image)
-              : AssetImage("assets/images/user.png"),
+        Obx(
+          () => CircleAvatar(
+            radius: 25.0,
+            backgroundImage: appModel.currentUser.value.image != null
+                ? CachedNetworkImageProvider(appModel.currentUser.value.image)
+                : AssetImage("assets/images/user.png"),
+          ),
         ),
       ],
     );

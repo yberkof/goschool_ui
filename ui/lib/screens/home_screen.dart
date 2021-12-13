@@ -17,7 +17,6 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    if (AppModel.shared.currentUser == null)
       AppModelHelper.shared.loadCurrentUser(() {
         setState(() {});
       });

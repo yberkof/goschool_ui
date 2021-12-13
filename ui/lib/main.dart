@@ -3,13 +3,16 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:ui/generated/l10n.dart';
+import 'package:ui/models/app_model.dart';
 import 'package:ui/screens/welcome_screen.dart';
 import 'package:ui/widgets/bottom_navigation.dart';
+import 'package:get/get.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   S.load(Locale('en'));
   await Firebase.initializeApp();
+  Get.put(AppModel.shared);
   runApp(MyApp());
 }
 
@@ -19,7 +22,7 @@ class MyApp extends StatelessWidget {
     SystemChrome.setSystemUIOverlayStyle(
         SystemUiOverlayStyle(statusBarColor: Colors.transparent));
 
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Go School',
       localizationsDelegates: [
