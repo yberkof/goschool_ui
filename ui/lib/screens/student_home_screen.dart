@@ -7,12 +7,12 @@ import 'package:ui/widgets/header.dart';
 import 'package:ui/widgets/recents_alerts.dart';
 import 'package:ui/widgets/recents_homeworks.dart';
 
-class HomeScreen extends StatefulWidget {
+class StudentHomeScreen extends StatefulWidget {
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _StudentHomeScreenState createState() => _StudentHomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _StudentHomeScreenState extends State<StudentHomeScreen> {
   @override
   void initState() {
     // TODO: implement initState

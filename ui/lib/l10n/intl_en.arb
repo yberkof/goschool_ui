@@ -21,5 +21,7 @@
   "retry": "Retry?",
   "name": "Name:",
   "email": "Email:",
-  "logout": "Logout"
+  "logout": "Logout",
+  "goSchool": "Go School",
+  "pleaseContactTheManagementToCompleteYourRegistration": "Please contact the management to complete your registration"
 }

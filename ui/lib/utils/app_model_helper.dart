@@ -11,14 +11,18 @@ class AppModelHelper {
   CollectionReference users = FirebaseFirestore.instance.collection('users');
 
   void loadCurrentUser(VoidCallback callback) {
-    users
+  try{  users
         .where('uid', isEqualTo: FirebaseAuth.instance.currentUser.uid)
         .get()
         .then((value) {
       if (value.size == 1) {
         AppModel.shared.setUser( user.User.fromMap(value.docs[0].data()));
-        callback.call();
       }
-    });
+      callback.call();
+
+    });}
+    catch (e){
+    callback.call();
+    }
   }
 }

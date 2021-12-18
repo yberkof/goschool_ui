@@ -2,26 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:ui/constants.dart';
 import 'package:ui/screens/classes_screen.dart';
-import 'package:ui/screens/home_screen.dart';
+import 'package:ui/screens/student_home_screen.dart';
 import 'package:ui/screens/settings_screen.dart';
 
-class BottomNavigation extends StatefulWidget {
+class StudentBottomNavigation extends StatefulWidget {
   @override
-  _BottomNavigationState createState() => _BottomNavigationState();
+  _StudentBottomNavigationState createState() => _StudentBottomNavigationState();
 }
 
-class _BottomNavigationState extends State<BottomNavigation> {
+class _StudentBottomNavigationState extends State<StudentBottomNavigation> {
   int _selectedTab = 0;
   Widget _currentPage;
   List<Widget> _pages;
-  HomeScreen _homeScreen;
+  StudentHomeScreen _homeScreen;
   ClassesScreen _classesScreen;
   SettingsScreen _settingsScreen;
 
   @override
   void initState() {
     super.initState();
-    _homeScreen = HomeScreen();
+    _homeScreen = StudentHomeScreen();
     _classesScreen = ClassesScreen();
     _settingsScreen = SettingsScreen();
     _pages = [_homeScreen, _classesScreen, _homeScreen, _settingsScreen];

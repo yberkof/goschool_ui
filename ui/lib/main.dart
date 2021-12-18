@@ -5,7 +5,10 @@ import 'package:flutter/services.dart';
 import 'package:ui/generated/l10n.dart';
 import 'package:ui/models/app_model.dart';
 import 'package:ui/screens/welcome_screen.dart';
-import 'package:ui/widgets/bottom_navigation.dart';
+import 'package:ui/utils/app_model_helper.dart';
+import 'package:ui/utils/route_helper.dart';
+import 'package:ui/widgets/parent_bottom_navigation.dart';
+import 'package:ui/widgets/student_bottom_navigation.dart';
 import 'package:get/get.dart';
 
 Future<void> main() async {
@@ -13,7 +16,12 @@ Future<void> main() async {
   S.load(Locale('en'));
   await Firebase.initializeApp();
   Get.put(AppModel.shared);
-  runApp(MyApp());
+  if (FirebaseAuth.instance.currentUser != null)
+    AppModelHelper.shared.loadCurrentUser(() {
+      runApp(MyApp());
+    });
+  else
+    runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -24,7 +32,7 @@ class MyApp extends StatelessWidget {
 
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Go School',
+      title: S.current.goSchool,
       localizationsDelegates: [
         S.delegate,
         DefaultMaterialLocalizations.delegate
@@ -35,9 +43,13 @@ class MyApp extends StatelessWidget {
         backgroundColor: Color(0xFF12171D),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: FirebaseAuth.instance.currentUser != null
-          ? BottomNavigation()
-          : WelcomeScreen(),
+      home: _getRoute(),
     );
+  }
+
+  Widget _getRoute() {
+    return FirebaseAuth.instance.currentUser != null
+        ? RouteHelper.shared.getHomeByRole()
+        : WelcomeScreen();
   }
 }

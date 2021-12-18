@@ -18,6 +18,7 @@ class AuthenticationService {
     try {
       UserCredential userCredential = await _firebaseAuth
           .signInWithEmailAndPassword(email: email, password: password);
+
       return userCredential;
     } on FirebaseAuthException catch (e) {
       AlertHelper.hideProgressDialog(context);

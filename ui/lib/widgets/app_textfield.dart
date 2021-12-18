@@ -21,7 +21,7 @@ class AppTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        TextField(
+        TextFormField(
           obscureText: isObscureText ?? false,
           decoration: InputDecoration(
             hintText: hint,

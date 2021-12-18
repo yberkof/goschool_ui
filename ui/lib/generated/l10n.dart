@@ -264,6 +264,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Go School`
+  String get goSchool {
+    return Intl.message(
+      'Go School',
+      name: 'goSchool',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please contact the management to complete your registration`
+  String get pleaseContactTheManagementToCompleteYourRegistration {
+    return Intl.message(
+      'Please contact the management to complete your registration',
+      name: 'pleaseContactTheManagementToCompleteYourRegistration',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -6,9 +6,10 @@ import 'package:ui/generated/l10n.dart';
 import 'package:ui/screens/register_page.dart';
 import 'package:ui/services/auth_service.dart';
 import 'package:ui/utils/alert_helper.dart';
+import 'package:ui/utils/route_helper.dart';
 import 'package:ui/widgets/app_outlinebutton.dart';
 import 'package:ui/widgets/app_textfield.dart';
-import 'package:ui/widgets/bottom_navigation.dart';
+import 'package:ui/widgets/student_bottom_navigation.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -100,7 +101,7 @@ class _LoginPageState extends State<LoginPage> {
                     if (value != null) {
                       AlertHelper.hideProgressDialog(context);
                       Navigator.of(context).pushReplacement(MaterialPageRoute(
-                          builder: (c) => BottomNavigation()));
+                          builder: (c) => RouteHelper.shared.getHomeByRole()));
                     }
                   });
                 },
