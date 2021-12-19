@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:ui/models/app_model.dart';
 import 'package:ui/screens/login_page.dart';
 import 'package:ui/utils/alert_helper.dart';
+import 'package:ui/utils/app_model_helper.dart';
 
 class AuthenticationService {
   final FirebaseAuth _firebaseAuth;
@@ -18,7 +19,6 @@ class AuthenticationService {
     try {
       UserCredential userCredential = await _firebaseAuth
           .signInWithEmailAndPassword(email: email, password: password);
-
       return userCredential;
     } on FirebaseAuthException catch (e) {
       AlertHelper.hideProgressDialog(context);
@@ -31,12 +31,10 @@ class AuthenticationService {
     try {
       AlertHelper.showProgressDialog(context);
       await _firebaseAuth.signOut();
-      AppModel.shared.currentUser=null;
-        AlertHelper.hideProgressDialog(context);
-        Navigator.popUntil(
-            context, (route) => Navigator.of(context).canPop());
-    Navigator.push(
-    context, MaterialPageRoute(builder: (c) => LoginPage()));
+      AppModel.shared.currentUser = null;
+      AlertHelper.hideProgressDialog(context);
+      Navigator.popUntil(context, (route) => Navigator.of(context).canPop());
+      Navigator.push(context, MaterialPageRoute(builder: (c) => LoginPage()));
       return "Signed out";
     } on FirebaseAuthException catch (e) {
       return "Error Signout : " + e.message;

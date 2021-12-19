@@ -6,6 +6,7 @@ import 'package:ui/generated/l10n.dart';
 import 'package:ui/screens/register_page.dart';
 import 'package:ui/services/auth_service.dart';
 import 'package:ui/utils/alert_helper.dart';
+import 'package:ui/utils/app_model_helper.dart';
 import 'package:ui/utils/route_helper.dart';
 import 'package:ui/widgets/app_outlinebutton.dart';
 import 'package:ui/widgets/app_textfield.dart';
@@ -99,9 +100,12 @@ class _LoginPageState extends State<LoginPage> {
                           _passwordController.text)
                       .then((value) {
                     if (value != null) {
-                      AlertHelper.hideProgressDialog(context);
-                      Navigator.of(context).pushReplacement(MaterialPageRoute(
-                          builder: (c) => RouteHelper.shared.getHomeByRole()));
+                      AppModelHelper.shared.loadCurrentUser(() {
+                        AlertHelper.hideProgressDialog(context);
+                        Navigator.of(context).pushReplacement(MaterialPageRoute(
+                            builder: (c) =>
+                                RouteHelper.shared.getHomeByRole()));
+                      });
                     }
                   });
                 },

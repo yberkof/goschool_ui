@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart';
@@ -91,11 +92,7 @@ class _UploadImageScreenState extends State<UploadImageScreen> {
                           child: _imageFile != null
                               ? Image.file(_imageFile)
                               : FlatButton(
-                                  child: Icon(
-                                    Icons.add_a_photo,
-                                    color: Colors.white,
-                                    size: 50,
-                                  ),
+                                  child: Image.asset("assets/images/user.png"),
                                   onPressed: pickImage,
                                 ),
                         ),
