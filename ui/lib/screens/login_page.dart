@@ -10,7 +10,7 @@ import 'package:ui/utils/app_model_helper.dart';
 import 'package:ui/utils/route_helper.dart';
 import 'package:ui/widgets/app_outlinebutton.dart';
 import 'package:ui/widgets/app_textfield.dart';
-import 'package:ui/widgets/student_bottom_navigation.dart';
+import 'package:ui/students/student_bottom_navigation.dart';
 
 class LoginPage extends StatefulWidget {
   @override

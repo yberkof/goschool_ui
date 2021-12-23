@@ -7,8 +7,8 @@ import 'package:ui/models/app_model.dart';
 import 'package:ui/screens/welcome_screen.dart';
 import 'package:ui/utils/app_model_helper.dart';
 import 'package:ui/utils/route_helper.dart';
-import 'package:ui/widgets/parent_bottom_navigation.dart';
-import 'package:ui/widgets/student_bottom_navigation.dart';
+import 'package:ui/teachers/teacher_bottom_navigation.dart';
+import 'package:ui/students/student_bottom_navigation.dart';
 import 'package:get/get.dart';
 
 Future<void> main() async {

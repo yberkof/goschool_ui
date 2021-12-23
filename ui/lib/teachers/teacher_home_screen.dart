@@ -7,19 +7,19 @@ import 'package:ui/widgets/header.dart';
 import 'package:ui/widgets/recents_alerts.dart';
 import 'package:ui/widgets/recents_homeworks.dart';
 
-class StudentHomeScreen extends StatefulWidget {
+class TeacherHomeScreen extends StatefulWidget {
   @override
-  _StudentHomeScreenState createState() => _StudentHomeScreenState();
+  _TeacherHomeScreenState createState() => _TeacherHomeScreenState();
 }
 
-class _StudentHomeScreenState extends State<StudentHomeScreen> {
+class _TeacherHomeScreenState extends State<TeacherHomeScreen> {
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-      AppModelHelper.shared.loadCurrentUser(() {
-        setState(() {});
-      });
+    AppModelHelper.shared.loadCurrentUser(() {
+      setState(() {});
+    });
   }
 
   @override
@@ -31,25 +31,6 @@ class _StudentHomeScreenState extends State<StudentHomeScreen> {
       child: ListView(
         children: <Widget>[
           Header(),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10.0),
-            child: TextField(
-              style: TextStyle(color: kTextColor),
-              cursorColor: kTextColor,
-              decoration: InputDecoration(
-                contentPadding: EdgeInsets.all(8.0),
-                border: InputBorder.none,
-                fillColor: Theme.of(context).primaryColor,
-                filled: true,
-                hintText: S.of(context).search,
-                hintStyle: TextStyle(color: kTextColor),
-                prefixIcon: Icon(Icons.search, color: kTextColor, size: 26.0),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(30.0),
-                ),
-              ),
-            ),
-          ),
           SizedBox(height: 30.0),
           Container(
             padding: EdgeInsets.only(top: 35, left: 20),
@@ -72,7 +53,7 @@ class _StudentHomeScreenState extends State<StudentHomeScreen> {
                   ),
                 ),
                 SizedBox(height: 30.0),
-                RecentsAlerts(),
+                RecentAlerts(),
                 Center(
                   child: Text(
                     S.of(context).viewAll,

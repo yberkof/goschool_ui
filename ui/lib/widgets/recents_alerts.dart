@@ -6,7 +6,7 @@ import 'package:ui/models/alert.dart';
 import 'package:ui/widgets/countdown_painter.dart';
 
 
-class RecentsAlerts extends StatelessWidget {
+class RecentAlerts extends StatelessWidget {
 
   final DateFormat dateFormat = DateFormat("hh:mm a");
 

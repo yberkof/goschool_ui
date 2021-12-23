@@ -3,12 +3,12 @@ import 'package:ui/constants.dart';
 import 'package:ui/widgets/build_classes.dart';
 import 'package:ui/widgets/header.dart';
 
-class ClassesScreen extends StatefulWidget {
+class StudentClassesScreen extends StatefulWidget {
   @override
-  _ClassesScreenState createState() => _ClassesScreenState();
+  _StudentClassesScreenState createState() => _StudentClassesScreenState();
 }
 
-class _ClassesScreenState extends State<ClassesScreen> {
+class _StudentClassesScreenState extends State<StudentClassesScreen> {
   @override
   Widget build(BuildContext context) {
     return ListView(

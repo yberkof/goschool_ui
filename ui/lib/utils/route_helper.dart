@@ -4,8 +4,8 @@ import 'package:ui/generated/l10n.dart';
 import 'package:ui/models/app_model.dart';
 import 'package:ui/screens/settings_screen.dart';
 import 'package:ui/widgets/home_for_not_implemented_role.dart';
-import 'package:ui/widgets/parent_bottom_navigation.dart';
-import 'package:ui/widgets/student_bottom_navigation.dart';
+import 'package:ui/teachers/teacher_bottom_navigation.dart';
+import 'package:ui/students/student_bottom_navigation.dart';
 
 class RouteHelper {
   static var shared = RouteHelper._();
