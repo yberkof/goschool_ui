@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:ui/constants.dart';
+import 'package:get/get.dart';
 import 'package:ui/generated/l10n.dart';
 import 'package:ui/models/app_model.dart';
 import 'package:ui/utils/app_model_helper.dart';
 import 'package:ui/widgets/header.dart';
 import 'package:ui/widgets/recents_alerts.dart';
 import 'package:ui/widgets/recents_homeworks.dart';
+import 'add_class_screen.dart';
 
 class TeacherHomeScreen extends StatefulWidget {
   @override
@@ -44,13 +45,33 @@ class _TeacherHomeScreenState extends State<TeacherHomeScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text(
-                  S.of(context).recentAlerts,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.bold,
-                  ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        S.of(context).recentAlerts,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsetsDirectional.only(end: 16.0),
+                      child: IconButton(
+                        icon: Icon(
+                          Icons.add,
+                          color: Colors.green,
+                          size: 40,
+                        ),
+                        onPressed: () {
+                          Get.bottomSheet(AddClassScreen(),
+                              useRootNavigator: true);
+                        },
+                      ),
+                    )
+                  ],
                 ),
                 SizedBox(height: 30.0),
                 RecentAlerts(),

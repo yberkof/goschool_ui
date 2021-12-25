@@ -12,8 +12,7 @@ class Header extends StatelessWidget {
     return GetX<AppModel>(
       init: AppModel.shared,
       builder: (appModel) {
-        if(appModel.currentUser.value==null)
-          return Container();
+        if (appModel.currentUser.value == null) return Container();
         return Padding(
             padding: EdgeInsets.fromLTRB(8.0, 50.0, 8.0, 8.0),
             child: Column(
@@ -51,10 +50,7 @@ class Header extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: <Widget>[
-        SvgPicture.asset(
-          "assets/icons/grad_cap.png",
-          height: 70.0,
-        ),
+        getHeadAsset(),
         Container(
           width: MediaQuery.of(context).size.width * 0.6,
           height: 30,
@@ -85,6 +81,21 @@ class Header extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  Widget getHeadAsset() {
+    switch (AppModel.shared.currentUser.value.role) {
+      case '4':
+        return SvgPicture.asset(
+          'assets/icons/grad_cap.png',
+          height: 70.0,
+        );
+      case '3':
+        return Image.asset(
+          'assets/icons/teacher_head.png',
+          height: 70.0,
+        );
+    }
   }
 
   TextStyle _getTextStyle({double fontSize = 25}) {
