@@ -21,6 +21,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
+    "addAlert" : MessageLookupByLibrary.simpleMessage("Add Alert"),
+    "courseName" : MessageLookupByLibrary.simpleMessage("Course Name"),
+    "date" : MessageLookupByLibrary.simpleMessage("Date"),
     "email" : MessageLookupByLibrary.simpleMessage("Email:"),
     "emailId" : MessageLookupByLibrary.simpleMessage("Email ID"),
     "failed" : MessageLookupByLibrary.simpleMessage("Failed"),
@@ -29,6 +32,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "fullName" : MessageLookupByLibrary.simpleMessage("Full Name"),
     "goSchool" : MessageLookupByLibrary.simpleMessage("Go School"),
     "goschoolUi" : MessageLookupByLibrary.simpleMessage("GoSchool UI"),
+    "hour" : MessageLookupByLibrary.simpleMessage("Hour"),
     "lastName" : MessageLookupByLibrary.simpleMessage("Last Name"),
     "login" : MessageLookupByLibrary.simpleMessage("Login"),
     "logout" : MessageLookupByLibrary.simpleMessage("Logout"),
@@ -42,6 +46,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "recentHomework" : MessageLookupByLibrary.simpleMessage("Recent Homework"),
     "register" : MessageLookupByLibrary.simpleMessage("Register"),
     "retry" : MessageLookupByLibrary.simpleMessage("Retry?"),
+    "saveAlert" : MessageLookupByLibrary.simpleMessage("Save Alert"),
     "schoolName" : MessageLookupByLibrary.simpleMessage("School Name"),
     "search" : MessageLookupByLibrary.simpleMessage("Search"),
     "signUp" : MessageLookupByLibrary.simpleMessage("Sign Up"),

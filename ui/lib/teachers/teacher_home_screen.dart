@@ -6,7 +6,7 @@ import 'package:ui/utils/app_model_helper.dart';
 import 'package:ui/widgets/header.dart';
 import 'package:ui/widgets/recents_alerts.dart';
 import 'package:ui/widgets/recents_homeworks.dart';
-import 'add_class_screen.dart';
+import 'add_alert_screen.dart';
 
 class TeacherHomeScreen extends StatefulWidget {
   @override
@@ -66,8 +66,7 @@ class _TeacherHomeScreenState extends State<TeacherHomeScreen> {
                           size: 40,
                         ),
                         onPressed: () {
-                          Get.bottomSheet(AddClassScreen(),
-                              useRootNavigator: true);
+                          _addAlert();
                         },
                       ),
                     )
@@ -107,5 +106,13 @@ class _TeacherHomeScreenState extends State<TeacherHomeScreen> {
         ],
       ),
     );
+  }
+
+  Future<void> _addAlert() async {
+      await Get.bottomSheet(AddAlertScreen(),
+        useRootNavigator: true, isScrollControlled: true);
+            setState(() {
+
+            });
   }
 }

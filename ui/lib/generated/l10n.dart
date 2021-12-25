@@ -284,6 +284,56 @@ class S {
       args: [],
     );
   }
+
+  /// `Course Name`
+  String get courseName {
+    return Intl.message(
+      'Course Name',
+      name: 'courseName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add Alert`
+  String get addAlert {
+    return Intl.message(
+      'Add Alert',
+      name: 'addAlert',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Date`
+  String get date {
+    return Intl.message(
+      'Date',
+      name: 'date',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hour`
+  String get hour {
+    return Intl.message(
+      'Hour',
+      name: 'hour',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Save Alert`
+  String get saveAlert {
+    return Intl.message(
+      'Save Alert',
+      name: 'saveAlert',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

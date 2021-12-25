@@ -23,5 +23,10 @@
   "email": "Email:",
   "logout": "Logout",
   "goSchool": "Go School",
-  "pleaseContactTheManagementToCompleteYourRegistration": "Please contact the management to complete your registration"
+  "pleaseContactTheManagementToCompleteYourRegistration": "Please contact the management to complete your registration",
+  "courseName": "Course Name",
+  "addAlert": "Add Alert",
+  "date": "Date",
+  "hour": "Hour",
+  "saveAlert": "Save Alert"
 }
