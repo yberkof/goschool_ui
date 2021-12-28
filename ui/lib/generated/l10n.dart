@@ -334,6 +334,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Add Homework`
+  String get addHomework {
+    return Intl.message(
+      'Add Homework',
+      name: 'addHomework',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -1,18 +1,33 @@
+// To parse this JSON data, do
+//
+//     final homework = homeworkFromJson(jsonString);
+
+import 'dart:convert';
+
+Homework homeworkFromJson(String str) => Homework.fromJson(json.decode(str));
+
+String homeworkToJson(Homework data) => json.encode(data.toJson());
+
 class Homework {
-  final String title;
-  final DateTime dueTime;
-  bool isDone = false;
+  Homework({
+    this.title,
+    this.time,
+    this.doneBy,
+  });
 
-  Homework({this.title, this.dueTime});
+  String title;
+  DateTime time;
+  List<String> doneBy;
+
+  factory Homework.fromJson(Map<String, dynamic> json) => Homework(
+    title: json["title"],
+    time: DateTime.parse(json["time"]),
+    doneBy: List<String>.from(json["doneBy"].map((x) => x)),
+  );
+
+  Map<String, dynamic> toJson() => {
+    "title": title,
+    "time": time.toIso8601String(),
+    "doneBy": List<dynamic>.from(doneBy.map((x) => x)),
+  };
 }
-
-List<Homework> recentHomeworks = [
-  Homework(
-    title: "Planimetric Exercises",
-    dueTime: DateTime.parse("2020-06-08 10:30:00"),
-  ),
-  Homework(
-    title: "Visicosity Exercises",
-    dueTime: DateTime.parse("2020-06-09 14:30:00"),
-  ),
-];

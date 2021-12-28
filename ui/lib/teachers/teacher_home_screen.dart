@@ -7,6 +7,7 @@ import 'package:ui/widgets/header.dart';
 import 'package:ui/widgets/recents_alerts.dart';
 import 'package:ui/widgets/recents_homeworks.dart';
 import 'add_alert_screen.dart';
+import 'add_homework_screen.dart';
 
 class TeacherHomeScreen extends StatefulWidget {
   @override
@@ -82,13 +83,32 @@ class _TeacherHomeScreenState extends State<TeacherHomeScreen> {
                   ),
                 ),
                 SizedBox(height: 20.0),
-                Text(
-                  S.of(context).recentHomework,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.bold,
-                  ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        S.of(context).recentHomework,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsetsDirectional.only(end: 16.0),
+                      child: IconButton(
+                        icon: Icon(
+                          Icons.add,
+                          color: Colors.green,
+                          size: 40,
+                        ),
+                        onPressed: () {
+                          _addHomework();
+                        },
+                      ),
+                    )
+                  ],
                 ),
                 SizedBox(height: 30.0),
                 RecentHomeworks(),
@@ -109,10 +129,13 @@ class _TeacherHomeScreenState extends State<TeacherHomeScreen> {
   }
 
   Future<void> _addAlert() async {
-      await Get.bottomSheet(AddAlertScreen(),
+    await Get.bottomSheet(AddAlertScreen(),
         useRootNavigator: true, isScrollControlled: true);
-            setState(() {
-
-            });
+    setState(() {});
+  }
+  Future<void> _addHomework() async {
+    await Get.bottomSheet(AddHomeworkScreen(),
+        useRootNavigator: true, isScrollControlled: true);
+    setState(() {});
   }
 }
